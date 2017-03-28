@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PrvaAplikacija.Models.Stavka>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br>
+<h2>Popis stavki računa : </h2>
+<br>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RedniBroj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proizvod.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ukupno)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RedniBroj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proizvod.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kolicina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cijena)
+        </td>
+        <td class="Desno">
+            @Html.DisplayFor(modelItem => item.Ukupno)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", "Stavka", new { id=item.StavkaID }, null) |
+            @Html.ActionLink("Detalji", "Details", "Stavka", new { id=item.StavkaID }, null) |
+            @Html.ActionLink("Obriši", "Delete", "Stavka", new { id=item.StavkaID }, null)
+        </td>
+    </tr>
+}
+</table>
+
+

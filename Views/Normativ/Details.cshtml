@@ -1,0 +1,50 @@
+﻿@model PrvaAplikacija.Models.Normativ
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Normativ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Artikal.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artikal.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mjera.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mjera.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proizvod.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proizvod.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Koeficijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Koeficijent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NormativID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

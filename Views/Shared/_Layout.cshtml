@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendocss")
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/kendojs")
+</head>
+<body>
+
+    @Html.Partial("_Menu")
+
+
+    <div class="container body-content">
+        
+        <div class="jumbotron naslov">
+            <p class="text-center">@ViewBag.Title</p>
+        </div>
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="text-center text-info">&copy; @DateTime.Now.Year - ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(function () {
+            $('#Navigation a').each(function () {
+                if (this.href == window.location.href) {
+                    $(this).addClass("active");
+                }   
+            });
+        });
+    </script>
+</body>
+</html>

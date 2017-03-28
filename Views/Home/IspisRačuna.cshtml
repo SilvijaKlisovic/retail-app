@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Ispis računa";
+}
+
+<div>
+    <h2> Narudžba: </h2>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-4">
+                <label>Šifra: </label>
+                <select id="combobox" class="inputKolicina">
+                    <option value="">Select one...</option>
+                    <option value="ActionScript">ActionScript</option>
+                    <option value="AppleScript">AppleScript</option>
+                    <option value="Asp">Asp</option>
+                    <option value="BASIC">BASIC</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="Clojure">Clojure</option>
+                    <option value="COBOL">COBOL</option>
+                    <option value="ColdFusion">ColdFusion</option>
+                    <option value="Erlang">Erlang</option>
+                    <option value="Fortran">Fortran</option>
+                    <option value="Groovy">Groovy</option>
+                    <option value="Haskell">Haskell</option>
+                    <option value="Java">Java</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Lisp">Lisp</option>
+                    <option value="Perl">Perl</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python">Python</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Scala">Scala</option>
+                    <option value="Scheme">Scheme</option>
+                </select>
+            </div> 
+            <div class="input-group col-sm-4">
+                <label class="lab">Količina: </label>
+                <input type="text" class="form-control inputKolicina" id="exampleInputAmount">
+            </div>
+            <div class="input-group col-sm-4">
+                <label class="lab">Ukupno: </label>
+                <input type="text" class="form-control inputKolicina" id="exampleInputAmount">
+            </div>
+        </div>
+    </form>
+
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="input-group col-xs-4">
+                <div class="input-group-addon">Ukupno za platiti:</div>
+                <output value="Ukupno:" type="text" class="form-control input-lg ukupno" id="name"></output>
+                <div class="input-group-addon">Kn</div>
+            </div>
+        </div>
+    </form>
+</div>
+
+        <script>
+            $(function () {
+                $("#combobox").combobox();
+            });
+        </script>

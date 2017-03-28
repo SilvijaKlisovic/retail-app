@@ -1,0 +1,66 @@
+﻿@model PrvaAplikacija.Models.Artikal
+
+@{
+    ViewBag.Title = "Brisanje";
+}
+
+<br>
+<h3><strong>Jeste li sigurni da želite izbrisati ovaj artikal?</strong></h3>
+<br>
+
+<div>
+    <dl class="dl-horizontal">
+        <h4><dt>
+            Šifra artikla
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtikalID)
+        </dd>
+
+        <hr />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cijena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kolicina)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Mjera.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mjera.Naziv)
+        </dd></h4>
+        
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbriši" class="btn btn-danger" /> |
+            <span class="btn btn-info">@Html.ActionLink("Povratak", "Index")</span> |
+            <span class="btn btn-success">@Html.ActionLink("Uredi", "Edit", new { id = Model.ArtikalID })</span>
+        </div>
+    }
+</div>

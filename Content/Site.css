@@ -1,0 +1,147 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+    height: 35px;
+}
+
+.active {
+    color:cornflowerblue !important;
+}
+
+.naslov {
+    height: 20% !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top:15px;
+    margin-bottom:10px;
+    color: white;
+    font-size:35pt;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    background-color: cornflowerblue;
+    box-shadow: 10px 10px 5px grey;
+    border: 2px;
+    border-radius: 20px !important;
+}
+
+.row {
+    padding: 20px !important;
+    display: flex;
+    /*flex-wrap:wrap;
+    flex-direction: row;*/
+    flex-flow:row wrap;
+    align-items:stretch;
+    justify-content: space-between;
+}
+
+.flex-container {
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+    border-radius: 20px !important;
+}
+
+.my-picture {
+    height:80%;
+    width:80%;
+    margin-top:5%;
+    margin-left:10%;
+    margin-right:10%;
+    border: 3px solid;
+}
+
+.oko-slike {
+    background-color:black;
+    border-top-left-radius: 18px !important;
+    border-top-right-radius: 18px !important;
+    box-shadow: 0px 10px 5px grey;
+    color:grey;
+}
+
+.CV {
+    padding-top:30px;
+    padding-left:30px;
+    padding-bottom:10px;
+}
+
+.CV-visee {
+    padding-top:0px;
+    padding-left:30px;
+    padding-bottom:10px;
+}
+
+#CV-vise {
+    display: none;
+}
+
+.CV-vise {
+    margin-bottom:20px;
+    background-color: #3ab3d7;
+    color: #ffffff;
+}
+
+.opis {
+    width: 60% !important;
+    padding:30px;
+    padding-top:20px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+    border-radius: 20px !important;
+}
+
+
+.ukupno {
+    background-color: powderblue !important;
+}
+
+/* RACUN - ŠIFRE STIL  ahttp://jqueryui.com/resources/demos/autocomplete/combobox.html */
+
+.custom-combobox {
+		position: relative;
+        width: inherit;
+		display: inline-block;
+}
+
+.custom-combobox-toggle {
+    position: absolute;
+    top: 0;        
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+}
+
+.custom-combobox-input {
+    position: relative;
+    margin: 0;
+    padding: 5px 10px;
+    width: 180px !important;
+}
+
+.Desno {
+    float: right;
+}
+
+.LinkoviBijeli .Desno a:link {  
+    color: white;
+}

@@ -1,0 +1,56 @@
+﻿@model PrvaAplikacija.Models.Racun
+
+@{
+    ViewBag.Title = "Račun";
+}
+
+<br>
+<h3>
+    UGOSTITELJSKI OBRT TEST <br>
+    Objekt brze prehrane TIP II <br>
+    TEST 12, 22 000 Testgrad <br>
+    Vlasnik: Test User <br>
+    OIB: 01234567891
+</h3>
+<br>
+<h3>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vrijeme)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vrijeme)
+        </dd>
+
+        <dt>
+            JIR Broj
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RacunID)
+        </dd>
+    </dl>
+</h3>
+
+@Html.Partial("_StavkeGrid", Model.Stavke)
+
+<div>
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <div class="table-responsive">
+            <table class="table text-right">
+                <thead class="">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.UkupnoZaPlatiti)</th class="Desno">
+                        <th>@Html.DisplayFor(model => model.UkupnoZaPlatiti)</th>
+                    </tr>
+                </thead>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>
+
+<span class="btn btn-info">@Html.ActionLink("Lista računa", "Index") </span>
+<span class="btn btn-success Desno"> @Html.ActionLink("Kreiraj novi", "Create", "Stavka") </span>
+ 
