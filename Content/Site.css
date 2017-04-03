@@ -29,6 +29,7 @@ textarea {
 }
 
 .naslov {
+    /*
     height: 20% !important;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -40,7 +41,7 @@ textarea {
     background-color: cornflowerblue;
     box-shadow: 10px 10px 5px grey;
     border: 2px;
-    border-radius: 20px !important;
+    border-radius: 20px !important;*/
 }
 
 .row {

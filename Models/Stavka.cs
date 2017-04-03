@@ -27,9 +27,10 @@ namespace PrvaAplikacija.Models
         public int Kolicina { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:c}")]
-        public double Cijena { get; set; }
+        [Required]
+        public decimal Cijena { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:c}")]
-        public double Ukupno { get; set; }
+        public decimal Ukupno { get; set; }
     }
 }

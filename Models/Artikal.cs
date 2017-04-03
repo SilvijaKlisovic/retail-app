@@ -12,14 +12,16 @@ namespace PrvaAplikacija.Models
         [Display(Name = "Šifra artikla")]
         public int ArtikalID { get; set; }
 
+        [Required]
         [Display(Name = "Naziv artikla")]
         public string Naziv { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:c}")]
-        public double Cijena { get; set; }
+        public decimal Cijena { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{0:#,#0.00#}", ApplyFormatInEditMode = true)]
-        public double Kolicina { get; set; }
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:c}")]
+        public decimal Kolicina { get; set; }
 
         public int MjeraID { get; set; }
 

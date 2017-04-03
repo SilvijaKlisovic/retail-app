@@ -20,6 +20,6 @@ namespace PrvaAplikacija.Models
         public virtual Proizvod Proizvod { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:0.####}")]
-        public double Koeficijent { get; set; }
+        public decimal Koeficijent { get; set; }
     }
 }

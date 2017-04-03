@@ -17,6 +17,6 @@ namespace PrvaAplikacija.Models
 
         [Display(Name = "Ukupno za platiti")]
         [DisplayFormat(DataFormatString = "{0:c}")]
-        public double UkupnoZaPlatiti { get; set; }
+        public decimal UkupnoZaPlatiti { get; set; }
     }
 }

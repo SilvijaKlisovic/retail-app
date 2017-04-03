@@ -713,13 +713,29 @@
     <Content Include="Content\kendo\2016.1.412\kendo.silver.mobile.min.css.map" />
     <Content Include="Content\kendo\2016.1.412\kendo.uniform.min.css.map" />
     <Content Include="Content\kendo\2016.1.412\kendo.uniform.mobile.min.css.map" />
+    <Content Include="Scripts\cldr\data\en\numbers.json" />
+    <Content Include="Scripts\cldr\data\hr\numbers.json" />
+    <Content Include="Scripts\cldr\data\likelySubtags.json" />
+    <Content Include="Scripts\cldr\data\numberingSystems.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\cldr.js" />
+    <Content Include="Scripts\cldr\event.js" />
+    <Content Include="Scripts\cldr\supplemental.js" />
+    <Content Include="Scripts\cldr\unresolved.js" />
     <Content Include="Scripts\Contact.js" />
+    <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\globalize\currency.js" />
+    <Content Include="Scripts\globalize\date.js" />
+    <Content Include="Scripts\globalize\message.js" />
+    <Content Include="Scripts\globalize\number.js" />
+    <Content Include="Scripts\globalize\plural.js" />
+    <Content Include="Scripts\globalize\relative-time.js" />
+    <Content Include="Scripts\globalize\unit.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -1583,6 +1599,7 @@
     <Content Include="Scripts\kendo\2016.1.412\cultures\kendo.culture.he-IL.min.js.map" />
     <Content Include="Scripts\kendo\2016.1.412\cultures\kendo.culture.haw.min.js.map" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_UICultureSetup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

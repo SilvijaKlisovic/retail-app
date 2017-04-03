@@ -18,6 +18,6 @@ namespace PrvaAplikacija.Models
         public string Naziv { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:c}")]
-        public double Cijena { get; set; }
+        public decimal Cijena { get; set; }
     }
 }
