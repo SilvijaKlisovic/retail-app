@@ -265,8 +265,13 @@
     <Compile Include="Migrations\201604191828568_ukloniokreirao.Designer.cs">
       <DependentUpon>201604191828568_ukloniokreirao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704041650260_DB_AUTH.cs" />
+    <Compile Include="Migrations\201704041650260_DB_AUTH.Designer.cs">
+      <DependentUpon>201704041650260_DB_AUTH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\Artikal.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -1637,6 +1642,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604191828568_ukloniokreirao.resx">
       <DependentUpon>201604191828568_ukloniokreirao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704041650260_DB_AUTH.resx">
+      <DependentUpon>201704041650260_DB_AUTH.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,20 +11,20 @@ namespace PrvaAplikacija.DAL
     {
         protected override void Seed(SkladisteContext context)
         {
-            var proiuvod1 = new Proizvod() { ProizvodID = 1, Sifra = 101 , Naziv = "Topli sendvić", Cijena = 14.00 };
-            var proiuvod2 = new Proizvod() { ProizvodID = 2, Sifra = 110 , Naziv = "Hamburger", Cijena = 17.00 };
-            var proiuvod3 = new Proizvod() { ProizvodID = 3, Sifra = 108 , Naziv = "Ćevapi", Cijena = 17.00 };
+            var proiuvod1 = new Proizvod() { ProizvodID = 1, Sifra = 101 , Naziv = "Topli sendvić", Cijena = 14.00M };
+            var proiuvod2 = new Proizvod() { ProizvodID = 2, Sifra = 110 , Naziv = "Hamburger", Cijena = 17.00M };
+            var proiuvod3 = new Proizvod() { ProizvodID = 3, Sifra = 108 , Naziv = "Ćevapi", Cijena = 17.00M };
             
             var mjera1 = new Mjera() { MjeraID = 1, Naziv = "Kg" };
             var mjera2 = new Mjera() { MjeraID = 2, Naziv = "Lit" };
             var mjera3 = new Mjera() { MjeraID = 3, Naziv = "Kom" };
 
-            var artikal1 = new Artikal() { ArtikalID = 1, Naziv = "Šunka", Kolicina = 0.342, MjeraID = 1 };
-            var artikal2 = new Artikal() { ArtikalID = 2, Naziv = "Sir", Kolicina = 0.500, MjeraID = 1 };
-            var artikal3 = new Artikal() { ArtikalID = 3, Naziv = "Pecivo", Kolicina = 1.500, MjeraID = 1 };
-            var artikal4 = new Artikal() { ArtikalID = 4, Naziv = "Lepinja", Kolicina = 3.000, MjeraID = 1 };
-            var artikal5 = new Artikal() { ArtikalID = 5, Naziv = "Mljeveno meso", Kolicina = 2.500, MjeraID = 1 };
-            var artikal6 = new Artikal() { ArtikalID = 6, Naziv = "Kava", Kolicina = 0.700, MjeraID = 1 };
+            var artikal1 = new Artikal() { ArtikalID = 1, Naziv = "Šunka", Kolicina = 0.342M, MjeraID = 1 };
+            var artikal2 = new Artikal() { ArtikalID = 2, Naziv = "Sir", Kolicina = 0.500M, MjeraID = 1 };
+            var artikal3 = new Artikal() { ArtikalID = 3, Naziv = "Pecivo", Kolicina = 1.500M, MjeraID = 1 };
+            var artikal4 = new Artikal() { ArtikalID = 4, Naziv = "Lepinja", Kolicina = 3.000M, MjeraID = 1 };
+            var artikal5 = new Artikal() { ArtikalID = 5, Naziv = "Mljeveno meso", Kolicina = 2.500M, MjeraID = 1 };
+            var artikal6 = new Artikal() { ArtikalID = 6, Naziv = "Kava", Kolicina = 0.700M, MjeraID = 1 };
 
             // mjera1.Artikli = new List<Artikal>() { artikal1, artikal2, artikal3, artikal4, artikal5, artikal6 };
 
