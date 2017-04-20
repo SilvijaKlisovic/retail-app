@@ -1,0 +1,43 @@
+﻿@model IEnumerable<RetailApp.Models.Normative>
+
+@{
+    ViewBag.Title = "Normatives proizvoda";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Koeficijent)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Koeficijent)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NormativeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NormativeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NormativeID })
+        </td>
+    </tr>
+}
+
+</table>

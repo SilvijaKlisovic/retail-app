@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PrvaAplikacija.Models.Stavka>
+﻿@model IEnumerable<RetailApp.Models.InvoiceLine>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
             @Html.DisplayNameFor(model => model.RedniBroj)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Proizvod.Naziv)
+            @Html.DisplayNameFor(model => model.Product.Naziv)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Kolicina)
@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.RedniBroj)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Proizvod.Naziv)
+            @Html.DisplayFor(modelItem => item.Product.Naziv)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Kolicina)
@@ -40,13 +40,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Cijena)
         </td>
-        <td class="Desno">
-            @Html.DisplayFor(modelItem => item.Ukupno)
+        <td>
+            <span class="pull-right">
+                @Html.DisplayFor(modelItem => item.Ukupno)
+            </span>
         </td>
         <td>
-            @Html.ActionLink("Uredi", "Edit", "Stavka", new { id=item.StavkaID }, null) |
-            @Html.ActionLink("Detalji", "Details", "Stavka", new { id=item.StavkaID }, null) |
-            @Html.ActionLink("Obriši", "Delete", "Stavka", new { id=item.StavkaID }, null)
+            @Html.ActionLink("Uredi", "Edit", "InvoiceLine", new { id=item.InvoiceLineID }, null) |
+            @Html.ActionLink("Detalji", "Details", "InvoiceLine", new { id=item.InvoiceLineID }, null) |
+            @Html.ActionLink("Obriši", "Delete", "InvoiceLine", new { id=item.InvoiceLineID }, null)
         </td>
     </tr>
 }

@@ -6,30 +6,31 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using PrvaAplikacija.DAL;
-using PrvaAplikacija.Models;
+using RetailApp.DAL;
+using RetailApp.Models;
 
-namespace PrvaAplikacija.Controllers
+namespace RetailApp.Controllers
 {
+    [Authorize]
     public class NormativController : Controller
     {
-        private SkladisteContext db = new SkladisteContext();
+        private RetailAppContext db = new RetailAppContext();
 
-        // GET: Normativ
+        // GET: Normative
         public ActionResult Index()
         {
-            var normativi = db.Normativi.Include(n => n.Artikal).Include(n => n.Proizvod);
+            var normativi = db.Normatives.Include(n => n.Item).Include(n => n.Product);
             return View(normativi.ToList());
         }
 
-        // GET: Normativ/Details/5
+        // GET: Normative/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Normativ normativ = db.Normativi.Find(id);
+            Normative normativ = db.Normatives.Find(id);
             if (normativ == null)
             {
                 return HttpNotFound();
@@ -37,57 +38,57 @@ namespace PrvaAplikacija.Controllers
             return View(normativ);
         }
 
-        // GET: Normativ/Create
+        // GET: Normative/Create
         public ActionResult Create()
         {
-            ViewBag.ArtikalID = new SelectList(db.Artikli, "ArtikalID", "Naziv");
-            ViewBag.MjeraID = new SelectList(db.Mjere, "MjeraID", "Naziv");
-            ViewBag.ProizvodID = new SelectList(db.Proizvodi, "ProizvodID", "Naziv");
+            ViewBag.ItemID = new SelectList(db.Items, "ItemID", "Naziv");
+            ViewBag.MeasureID = new SelectList(db.Measures, "MeasureID", "Naziv");
+            ViewBag.ProductID = new SelectList(db.Products, "ProductID", "Naziv");
             return View();
         }
 
-        // POST: Normativ/Create
+        // POST: Normative/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "NormativID,ArtikalID,ProizvodID,Koeficijent,MjeraID")] Normativ normativ)
+        public ActionResult Create([Bind(Include = "NormativeID,ItemID,ProductID,Koeficijent,MeasureID")] Normative normativ)
         {
             if (ModelState.IsValid)
             {
-                db.Normativi.Add(normativ);
+                db.Normatives.Add(normativ);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ArtikalID = new SelectList(db.Artikli, "ArtikalID", "Naziv", normativ.ArtikalID);
-            ViewBag.ProizvodID = new SelectList(db.Proizvodi, "ProizvodID", "Naziv", normativ.ProizvodID);
+            ViewBag.ItemID = new SelectList(db.Items, "ItemID", "Naziv", normativ.ItemID);
+            ViewBag.ProductID = new SelectList(db.Products, "ProductID", "Naziv", normativ.ProductID);
             return View(normativ);
         }
 
-        // GET: Normativ/Edit/5
+        // GET: Normative/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Normativ normativ = db.Normativi.Find(id);
+            Normative normativ = db.Normatives.Find(id);
             if (normativ == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ArtikalID = new SelectList(db.Artikli, "ArtikalID", "Naziv", normativ.ArtikalID);
-            ViewBag.ProizvodID = new SelectList(db.Proizvodi, "ProizvodID", "Naziv", normativ.ProizvodID);
+            ViewBag.ItemID = new SelectList(db.Items, "ItemID", "Naziv", normativ.ItemID);
+            ViewBag.ProductID = new SelectList(db.Products, "ProductID", "Naziv", normativ.ProductID);
             return View(normativ);
         }
 
-        // POST: Normativ/Edit/5
+        // POST: Normative/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "NormativID,ArtikalID,ProizvodID,Koeficijent,MjeraID")] Normativ normativ)
+        public ActionResult Edit([Bind(Include = "NormativeID,ItemID,ProductID,Koeficijent,MeasureID")] Normative normativ)
         {
             if (ModelState.IsValid)
             {
@@ -95,19 +96,19 @@ namespace PrvaAplikacija.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ArtikalID = new SelectList(db.Artikli, "ArtikalID", "Naziv", normativ.ArtikalID);
-            ViewBag.ProizvodID = new SelectList(db.Proizvodi, "ProizvodID", "Naziv", normativ.ProizvodID);
+            ViewBag.ItemID = new SelectList(db.Items, "ItemID", "Naziv", normativ.ItemID);
+            ViewBag.ProductID = new SelectList(db.Products, "ProductID", "Naziv", normativ.ProductID);
             return View(normativ);
         }
 
-        // GET: Normativ/Delete/5
+        // GET: Normative/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Normativ normativ = db.Normativi.Find(id);
+            Normative normativ = db.Normatives.Find(id);
             if (normativ == null)
             {
                 return HttpNotFound();
@@ -115,13 +116,13 @@ namespace PrvaAplikacija.Controllers
             return View(normativ);
         }
 
-        // POST: Normativ/Delete/5
+        // POST: Normative/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Normativ normativ = db.Normativi.Find(id);
-            db.Normativi.Remove(normativ);
+            Normative normativ = db.Normatives.Find(id);
+            db.Normatives.Remove(normativ);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RetailApp.Models.Product>
+
+@{
+    ViewBag.Title = "Cijenik proizvoda";
+}
+
+<br>
+<br>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cijena)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { id=item.ProductID }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.ProductID }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<br>
+<button class="button btn btn-info LinkoviBijeli" type="button" onclick="location.href='@Url.Action("Create", "Product")'">Stvori novi</button>

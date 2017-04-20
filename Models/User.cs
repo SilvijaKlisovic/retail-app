@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace PrvaAplikacija.Models
+namespace RetailApp.Models
 {
     public class User: IdentityUser
     {

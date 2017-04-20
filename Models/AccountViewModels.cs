@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace PrvaAplikacija.Models
+namespace RetailApp.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
@@ -49,8 +49,8 @@ namespace PrvaAplikacija.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [Display(Name = "Username")]
+        //[EmailAddress]
         public string Email { get; set; }
 
         [Required]

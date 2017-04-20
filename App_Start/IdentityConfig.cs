@@ -10,10 +10,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using PrvaAplikacija.Models;
-using PrvaAplikacija.DAL;
+using RetailApp.Models;
+using RetailApp.DAL;
 
-namespace PrvaAplikacija
+namespace RetailApp
 {
     public class EmailService : IIdentityMessageService
     {
@@ -43,7 +43,7 @@ namespace PrvaAplikacija
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<User>(context.Get<SkladisteContext>()));
+            var manager = new ApplicationUserManager(new UserStore<User>(context.Get<RetailAppContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<User>(manager)
             {

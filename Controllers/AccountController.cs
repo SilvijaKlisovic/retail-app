@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using PrvaAplikacija.Models;
+using RetailApp.Models;
 
-namespace PrvaAplikacija.Controllers
+namespace RetailApp.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -136,16 +136,17 @@ namespace PrvaAplikacija.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult Register()
         {
-            return View();
+            return RedirectToAction("Index", "HomeControler");
+            //return View();
         }
 
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {

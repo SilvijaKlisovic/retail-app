@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RetailApp.Models.InvoiceLine>
+
+@{
+    ViewBag.Title = "Popis stavki";
+}
+<br>
+<h2>Popis stavki za račun : </h2>
+<br>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RedniBroj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ukupno)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RedniBroj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kolicina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena)
+            </td>
+            <td>
+                <span class="pull-right">
+                    @Html.DisplayFor(modelItem => item.Ukupno)
+                </span>
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { id = item.InvoiceLineID }) |
+                @Html.ActionLink("Detalji", "Details", new { id = item.InvoiceLineID }) |
+                @Html.ActionLink("Obriši", "Delete", new { id = item.InvoiceLineID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br>
+<button class="button btn btn-info LinkoviBijeli" type="button" onclick="location.href='@Url.Action("Create", "InvoiceLine")'">Kreiraj novu stavku računa</button>
+<button class="button btn btn-info LinkoviBijeli" type="button" onclick="location.href='@Url.Action("Zakljuci", "Invoice")'">Zaključi račun</button>
+

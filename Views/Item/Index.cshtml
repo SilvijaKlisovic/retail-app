@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RetailApp.Models.Item>
+
+@{
+    ViewBag.Title = "Items u skladištu";
+}
+
+<br>
+<br>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Measure.Naziv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cijena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kolicina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Measure.Naziv)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { id=item.ItemID }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.ItemID }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.ItemID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<br>
+<button class="button btn btn-info LinkoviBijeli" type="button" onclick="location.href='@Url.Action("Create", "Item")'">Stvori novi</button>

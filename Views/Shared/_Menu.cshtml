@@ -10,11 +10,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav" id="Navigation">
-                <li>@Html.ActionLink("Skladište", "Index", "Artikal")</li>
-                <li>@Html.ActionLink("Cjenik", "Index", "Proizvod")</li>
-                <li>@Html.ActionLink("Narudžbe", "Index", "Stavka")</li>
-                <li>@Html.ActionLink("Pregled računa", "Index", "Racun")</li>
+                @if (Context.User.Identity.IsAuthenticated) { 
+                    <li>@Html.ActionLink("Skladište", "Index", "Item")</li>
+                    <li>@Html.ActionLink("Cjenik", "Index", "Product")</li>
+                    <li>@Html.ActionLink("Narudžbe", "Index", "InvoiceLine")</li>
+                    <li>@Html.ActionLink("Pregled računa", "Index", "Invoice")</li>
+                }
             </ul>
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
 </div>

@@ -1,0 +1,66 @@
+﻿@model RetailApp.Models.Invoice
+
+@{
+    ViewBag.Title = "Obriši";
+}
+<br>
+<h2><strong>Jeste li sigurni da želite izbrisati ovaj račun?</strong></h2>
+<br>
+<hr />
+<br>
+<h3>
+    UGOSTITELJSKI OBRT TEST <br>
+    Objekt brze prehrane TIP II <br>
+    TEST 12, 22 000 Testgrad <br>
+    Vlasnik: Test User <br>
+    OIB: 01234567891
+</h3>
+<br>
+<h3>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vrijeme)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vrijeme)
+        </dd>
+        <dt>
+            JIR Broj
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JIRRacuna)
+        </dd>
+    </dl>
+</h3>
+
+@Html.Partial("_StavkeGrid", Model.InvoiceLines)
+
+<div>
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <div class="table-responsive">
+            <table class="table text-right">
+                <thead class="">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.UkupnoZaPlatiti)</thclass="Desno">
+                        <th>@Html.DisplayFor(model => model.UkupnoZaPlatiti)</th>
+                    </tr>
+                </thead>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>
+
+<div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obriši" class="btn btn-danger Desno" />
+            <span class="btn btn-info">@Html.ActionLink("Povratak", "Index") </span> |
+            <span class="btn btn-success">@Html.ActionLink("Uredi", "Edit", new { id = Model.InvoiceID }) </span>
+        </div>
+    }
+</div>

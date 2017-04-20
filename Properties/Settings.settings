@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RetailApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="OIB" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">012345678910</Value>
+    </Setting>
+    <Setting Name="FiskalizacijaBaseURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://jurica.irb.hr/</Value>
+    </Setting>
+    <Setting Name="FiskalizacijaEndpoint" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">retailApp/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

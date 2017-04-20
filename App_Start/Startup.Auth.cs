@@ -5,10 +5,10 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using PrvaAplikacija.Models;
-using PrvaAplikacija.DAL;
+using RetailApp.Models;
+using RetailApp.DAL;
 
-namespace PrvaAplikacija
+namespace RetailApp
 {
     public partial class Startup
     {
@@ -16,7 +16,7 @@ namespace PrvaAplikacija
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(SkladisteContext.Create);
+            app.CreatePerOwinContext(RetailAppContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
