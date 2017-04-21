@@ -64,6 +64,7 @@ namespace RetailApp.Models
 
     public class RegisterViewModel
     {
+        public string name { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

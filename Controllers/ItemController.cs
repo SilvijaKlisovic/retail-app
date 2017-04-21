@@ -39,6 +39,7 @@ namespace RetailApp.Controllers
         }
 
         // GET: Item/Create
+        [Authorize(Roles ="Admin,Manager")]
         public ActionResult Create()
         {
             ViewBag.MeasureID = new SelectList(db.Measures, "MeasureID", "Naziv");
@@ -50,6 +51,7 @@ namespace RetailApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create([Bind(Include = "ItemID,Naziv,Cijena,Kolicina,MeasureID")] Item artikal)
         {
             if (ModelState.IsValid)
@@ -64,6 +66,7 @@ namespace RetailApp.Controllers
         }
 
         // GET: Item/Edit/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -84,6 +87,7 @@ namespace RetailApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit([Bind(Include = "ItemID,Naziv,Cijena,Kolicina,MeasureID")] Item artikal)
         {
             if (ModelState.IsValid)
@@ -97,6 +101,7 @@ namespace RetailApp.Controllers
         }
 
         // GET: Item/Delete/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,6 +119,7 @@ namespace RetailApp.Controllers
         // POST: Item/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult DeleteConfirmed(int id)
         {
             Item artikal = db.Items.Find(id);

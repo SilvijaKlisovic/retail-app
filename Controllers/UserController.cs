@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using RetailApp.DAL;
 using RetailApp.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace RetailApp.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private RetailAppContext db = new RetailAppContext();
@@ -19,9 +21,26 @@ namespace RetailApp.Controllers
         // GET: User
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ViewBag.Name = user.Name;
+                ViewBag.displayMenu = "No";
+
+                if (!User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                ViewBag.displayMenu = "Yes";                
+                return View(db.Users.ToList());
+            }
+            else
+            {
+                ViewBag.Name = "Not Logged IN";
+            }
             return View(db.Users.ToList());
         }
-
+       
         // GET: User/Details/5
         public ActionResult Details(string id)
         {
@@ -80,32 +99,40 @@ namespace RetailApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,UserName")] User user, FormCollection form_values)
+        public ActionResult Edit([Bind(Include = "Email,Password,UserName")] User user)
         {
             if (ModelState.IsValid)
             {
-                //if(form_values[form_values.AllKeys ("new_password")])
-                string new_password = form_values["new_password"];
-                if (new_password != "")
+                if (user.Password != null && user.Password != "")
                 {
-                    var res = new PasswordHasher().HashPassword(new_password);
-                    if (res != "")
+                    var userManager = new UserManager<User>(new UserStore<User>(db));
+                    string user_id = user.Id.ToString();
+                    var usr = db.Users.Single(u => u.UserName == user.UserName);
+
+                    var res = userManager.RemovePassword(usr.Id);
+                    if (res.Succeeded)
                     {
-                        user.PasswordHash = res;
+                        res = userManager.AddPassword(usr.Id, user.Password);
+                        if (!res.Succeeded)
+                        {
+                            AddErrors(res);
+                            return View(user);
+                        }
                     }
                 }
-                db.Entry(user).State = EntityState.Modified;
-                try
-                {
-                    db.SaveChanges();
-                }
-                catch (Exception e){
-                    Console.WriteLine(e.Message);
-                }
-                
+                //db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(user);
+        }
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error);
+            }
         }
 
         // GET: User/Delete/5

@@ -40,6 +40,7 @@ namespace RetailApp.Controllers
         }
 
         // GET: Product/Create
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create()
         {
             return View();
@@ -50,6 +51,7 @@ namespace RetailApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Create([Bind(Include = "ProductID,Naziv,Cijena")] Product proizvod)
         {
             if (ModelState.IsValid)
@@ -71,6 +73,7 @@ namespace RetailApp.Controllers
         }
 
         // GET: Product/Edit/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +93,7 @@ namespace RetailApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit([Bind(Include = "ProductID,Naziv,Cijena")] Product proizvod)
         {
             if (ModelState.IsValid)
@@ -102,6 +106,7 @@ namespace RetailApp.Controllers
         }
 
         // GET: Product/Delete/5
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -119,6 +124,7 @@ namespace RetailApp.Controllers
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult DeleteConfirmed(int id)
         {
             Product proizvod = db.Products.Find(id);

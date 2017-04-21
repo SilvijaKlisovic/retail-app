@@ -9,12 +9,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using RetailApp.Models;
+using RetailApp.DAL;
 
 namespace RetailApp.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private RetailAppContext db = new RetailAppContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -171,6 +173,43 @@ namespace RetailApp.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+        //
+
+        // GET: /Account/RegisterRole
+        [Authorize]
+        public ActionResult RegisterRole()
+        {
+            
+            ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
+            ViewBag.UserName = new SelectList(db.Users.ToList(), "UserName", "UserName");
+            return View();
+        }
+
+        //
+        // POST: /Account/RegisterRole
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterRole(RegisterViewModel model, User user)
+        {
+
+            var user_id = db.Users.Where(x => x.UserName == user.UserName).Select(s => s.Id);
+            string update_id = "";
+
+            foreach(var u in user_id)
+            {
+                update_id = u.ToString();
+            }
+
+            var result = await this.UserManager.AddToRoleAsync(update_id, model.name);
+            if (result.Succeeded) {
+                return RedirectToAction("Index", "Home");
+            }
+            AddErrors(result);
+            //return RedirectToAction("Index", "Home");
+            // If we got this far, something failed, redisplay form
+            return View("RegisterRole");
         }
 
         //

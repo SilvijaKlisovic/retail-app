@@ -77,7 +77,7 @@ namespace RetailApp.DAL
 
                 //creating superadmin
                 var superAdmin = new User();
-                superAdmin.Email = "admin";
+                superAdmin.Email = "admin@retailapp.hr";
                 superAdmin.UserName = "admin";
                 var res = userManager.Create(superAdmin, "Admin_1");
                 if (res.Succeeded)
@@ -95,6 +95,17 @@ namespace RetailApp.DAL
                 role.Name = "Manager";
                 roleManager.Create(role);
 
+                //creating Manager
+                var manager = new User();
+                manager.Email = "manager@retailapp.hr";
+                manager.UserName = "manager";
+                var res = userManager.Create(manager, "Manager_1");
+                if (res.Succeeded)
+                {
+                    Console.WriteLine("Manager user successfuly created");
+                    var role_res = userManager.AddToRole(manager.Id, role.Name);
+                    Console.WriteLine("Manager user successfuly added to role Manager");
+                }
             }
 
             // creating Creating Employee role 
@@ -104,6 +115,17 @@ namespace RetailApp.DAL
                 role.Name = "Employee";
                 roleManager.Create(role);
 
+                //creating Manager
+                var employee = new User();
+                employee.Email = "employee@retailapp.hr";
+                employee.UserName = "employee";
+                var res = userManager.Create(employee, "Employee_1");
+                if (res.Succeeded)
+                {
+                    Console.WriteLine("Employee user successfuly created");
+                    var role_res = userManager.AddToRole(employee.Id, role.Name);
+                    Console.WriteLine("Employee user successfuly added to role Manager");
+                }
             }
 
             base.Seed(context);

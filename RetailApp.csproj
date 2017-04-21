@@ -236,7 +236,9 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\InvoiceLineController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserRoleController.cs" />
     <Compile Include="DAL\RetailAppContext.cs" />
     <Compile Include="DAL\RetailAppInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -245,6 +247,10 @@
     <Compile Include="Migrations\201704152305070_Initial.cs" />
     <Compile Include="Migrations\201704152305070_Initial.Designer.cs">
       <DependentUpon>201704152305070_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704210020244_Add_user_role.cs" />
+    <Compile Include="Migrations\201704210020244_Add_user_role.Designer.cs">
+      <DependentUpon>201704210020244_Add_user_role.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Misc\Logger.cs" />
@@ -1597,6 +1603,9 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Account\RegisterRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1607,6 +1616,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704152305070_Initial.resx">
       <DependentUpon>201704152305070_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704210020244_Add_user_role.resx">
+      <DependentUpon>201704210020244_Add_user_role.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
