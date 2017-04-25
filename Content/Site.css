@@ -146,9 +146,3 @@ textarea {
 .LinkoviBijeli .Desno a:link {  
     color: white;
 }
-
-
-@media print{
-    .btn{display:none;}
-    a{display:none;}
-}

@@ -20,6 +20,9 @@ namespace RetailApp.Models
         public string Password { get; set; }
         public IdentityRole RoleID { get; set; }
 
+        [DataType(DataType.EmailAddress)]
+        public override string Email { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

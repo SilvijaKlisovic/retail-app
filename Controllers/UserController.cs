@@ -67,12 +67,27 @@ namespace RetailApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Email,UserName")] User user)
+        public ActionResult Create([Bind(Include = "Email,Password,UserName")] User user)
         {
             if (ModelState.IsValid)
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
+            {                
+                if (user.Password != null && user.Password != "")
+                {
+                    var userManager = new UserManager<User>(new UserStore<User>(db));
+                    var res = userManager.Create(user, user.Password);
+                    if (res.Succeeded)
+                    {
+                        db.SaveChanges();
+                    }
+                    else {
+                        AddErrors(res);
+                        return View(user);
+                    }
+                }
+                else {
+                    AddErrors(new IdentityResult("Passwor Fle error"));
+                    return View(user);
+                }
                 return RedirectToAction("Index");
             }
 

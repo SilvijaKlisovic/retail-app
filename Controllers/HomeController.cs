@@ -11,7 +11,7 @@ namespace RetailApp.Controllers
     {
         public ActionResult Index()
         {
-
+            ViewBag.message = "This is index.";
             return View();
         }
 
@@ -32,12 +32,12 @@ namespace RetailApp.Controllers
             return View();
         }
 
-        public ActionResult Skladište()
+        public ActionResult Skladiste()
         {
             return View();
         }
 
-        public ActionResult IspisRačuna()
+        public ActionResult IspisRacuna()
         {
             return View();
         }

@@ -20,13 +20,14 @@ namespace RetailApp.Misc
             try
             {
                 client = new MongoClient(settings);
+                this.db = client.GetDatabase("Loogs");
+                var collection = db.GetCollection<Loog>("Info");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            this.db = client.GetDatabase("Loogs");
-            var collection = db.GetCollection<Loog>("Info");
+            
         }
         public IMongoCollection<Loog> Loggs
         {
